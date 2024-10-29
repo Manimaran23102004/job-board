@@ -7,11 +7,11 @@ const cors = require('cors');
 const dotenv = require('dotenv');
 const cookieParser = require('cookie-parser')
 dotenv.config();
-
+const errorHandler = require('./middleware/error')
 
 app.use(express.json());
 app.use(cors());
-
+app.use(errorHandler)
 
 
 mongoose.connect(process.env.DATABASE,{
